@@ -2,6 +2,13 @@ GollumRails::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  resources :pages, :except => [:index] do
+    member do
+      post 'preview'
+    end
+  end
+  root :to => "pages#show"
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

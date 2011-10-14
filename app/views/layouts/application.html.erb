@@ -6,9 +6,15 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body id="<%= bodytag_id %>">
+  <div id="container">
+    <div id="flash_notice" style="display: none;"><%= flash[:notice] %></div>
+    <div id="toc" class="span-12">
+      <%= render 'pages/index' %>
+    </div>
+    <div id="content" class="span-12 last">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>
